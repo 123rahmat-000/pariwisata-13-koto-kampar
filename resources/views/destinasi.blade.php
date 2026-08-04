@@ -18,6 +18,16 @@
             Temukan pesona alam, sejarah, dan budaya yang tersebar di seluruh penjuru XIII Koto Kampar.
         </p>
     </div>
+
+    <div class="destinasi-search-wrap">
+        <form action="{{ route('destinasi') }}" method="GET">
+            <div class="destinasi-search-box">
+                <i class="bi bi-search"></i>
+                <input type="text" name="cari" placeholder="Cari nama destinasi..." value="{{ $keyword ?? '' }}">
+                <button type="submit">Cari</button>
+            </div>
+        </form>
+    </div>
 </section>
 
 <section class="filter-section">
@@ -41,6 +51,7 @@
 
 <section class="destinasi-grid-section">
     <div class="container">
+
         <div class="row g-4">
 
             @forelse ($destinasiList as $destinasi)
@@ -95,6 +106,10 @@
             @endforelse
 
         </div>
+        <div class="d-flex justify-content-center mt-4 destinasi-pagination-wrap">
+            {{ $destinasiList->appends(['cari' => $keyword])->links('pagination::bootstrap-5') }}
+        </div>
+
     </div>
 </section>
 

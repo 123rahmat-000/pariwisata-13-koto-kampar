@@ -144,6 +144,10 @@
         </div>
     @endforelse
 </div>
+$destinasiList = Destinasi::latest()->paginate(2);
+    return view('destinasi', compact('destinasiList'));
+}
+
     </div>
 </section>
 

@@ -1043,3 +1043,454 @@ footer {
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(13, 40, 24, 0.1);
 }
+
+/* ============================
+   SEARCH BAR (HALAMAN DESTINASI)
+   ============================ */
+.destinasi-search-wrap {
+  max-width: 650px;
+  margin: 0 auto -28px;
+  position: relative;
+  z-index: 3;
+}
+
+.destinasi-search-box {
+  background-color: #ffffff;
+  border-radius: 50px;
+  padding: 6px 6px 6px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 15px 35px rgba(13, 40, 24, 0.25);
+}
+
+.destinasi-search-box i {
+  color: var(--kampar-green);
+  font-size: 1.1rem;
+}
+
+.destinasi-search-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 0.95rem;
+  background: transparent;
+  padding: 10px 0;
+}
+
+.destinasi-search-box input::placeholder {
+  color: #a0a0a0;
+}
+
+.destinasi-search-box button {
+  background-color: var(--kampar-gold);
+  color: var(--kampar-green-dark);
+  border: none;
+  border-radius: 50px;
+  padding: 12px 26px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.destinasi-search-box button:hover {
+  background-color: #ffffff;
+  color: var(--kampar-green-dark);
+  box-shadow: inset 0 0 0 1.5px var(--kampar-gold);
+}
+
+/* filter-section jadi punya padding atas lebih supaya search box tidak menabrak tab */
+.filter-section {
+  padding-top: 46px;
+}
+
+/* ============================
+   PAGINATION - PROFESSIONAL STYLE
+   ============================ */
+.destinasi-pagination-wrap {
+  margin-top: 2.5rem;
+}
+
+.destinasi-pagination-wrap .pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.destinasi-pagination-wrap .page-item .page-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 16px;
+  border: 1px solid #e0ddd3;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: var(--kampar-green-dark);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  line-height: 1;
+  box-shadow: none;
+  transition: all 0.2s ease;
+}
+
+.destinasi-pagination-wrap .page-item .page-link:hover {
+  background-color: var(--kampar-green);
+  color: #ffffff;
+  border-color: var(--kampar-green);
+}
+
+.destinasi-pagination-wrap .page-item .page-link:focus {
+  box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.15);
+}
+
+.destinasi-pagination-wrap .page-item.active .page-link {
+  background-color: var(--kampar-green);
+  color: #ffffff;
+  border-color: var(--kampar-green);
+  font-weight: 600;
+}
+
+.destinasi-pagination-wrap .page-item.disabled .page-link {
+  background-color: #f7f9fc;
+  color: #b5b5b5;
+  border-color: #e0ddd3;
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Sembunyikan tombol nomor "..." bawaan agar tetap rapi bila jumlah halaman banyak */
+.destinasi-pagination-wrap .page-item.disabled span.page-link {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* ============================
+   ADMIN - TABEL USER
+   (tambahan untuk halaman Daftar User, bisa dipakai ulang
+   untuk tabel admin lain seperti Destinasi)
+   ============================ */
+
+.admin-toolbar {
+  max-width: 1000px;
+  margin: -28px auto 0;
+  padding: 0 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.admin-toolbar p {
+  color: #666666;
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.btn-add-user {
+  background-color: var(--kampar-gold);
+  color: var(--kampar-green-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 11px 22px;
+  border-radius: 8px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-add-user:hover {
+  background-color: #ffffff;
+  color: var(--kampar-green-dark);
+  box-shadow: inset 0 0 0 1.5px var(--kampar-gold);
+}
+
+.admin-table-section {
+  padding: 0 20px 90px;
+  background-color: #f7f9fc;
+}
+
+.admin-table-card {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(13, 40, 24, 0.1);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.admin-table thead th {
+  background-color: var(--kampar-green-dark);
+  color: var(--kampar-gold);
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 16px 22px;
+  border: none;
+}
+
+.admin-table thead th.text-center {
+  text-align: center;
+}
+
+.admin-table tbody td {
+  padding: 14px 22px;
+  font-size: 0.92rem;
+  color: #333333;
+  border-bottom: 1px solid #eeeeee;
+  vertical-align: middle;
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f7f9fc;
+}
+
+.admin-user-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--kampar-green-dark);
+  background-color: rgba(212, 175, 55, 0.25);
+  flex-shrink: 0;
+}
+
+.admin-avatar.is-admin {
+  background-color: rgba(179, 38, 30, 0.12);
+  color: #B3261E;
+}
+
+.admin-uname {
+  font-weight: 700;
+  color: var(--kampar-green-dark);
+}
+
+.admin-uemail {
+  color: #666666;
+}
+
+.role-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 50px;
+}
+
+.role-badge-user {
+  background-color: rgba(27, 67, 50, 0.08);
+  color: var(--kampar-green);
+}
+
+.role-badge-admin {
+  background-color: rgba(179, 38, 30, 0.1);
+  color: #B3261E;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn-table-edit,
+.btn-table-delete {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 7px;
+  border: 1.5px solid transparent;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-table-edit {
+  border-color: var(--kampar-green);
+  color: var(--kampar-green);
+}
+
+.btn-table-edit:hover {
+  background-color: rgba(27, 67, 50, 0.08);
+}
+
+.btn-table-delete {
+  border-color: #B3261E;
+  color: #B3261E;
+}
+
+.btn-table-delete:hover {
+  background-color: rgba(179, 38, 30, 0.08);
+}
+
+.admin-table-empty {
+  text-align: center;
+  color: #999999;
+  padding: 40px 22px !important;
+}
+
+/* ============================
+   ADMIN - FORM TAMBAH / EDIT USER
+   ============================ */
+
+.admin-form-section {
+  padding: 50px 20px 90px;
+  background-color: #f7f9fc;
+}
+
+.admin-form-card {
+  max-width: 520px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(13, 40, 24, 0.1);
+}
+
+.admin-form-topbar {
+  height: 5px;
+  background-color: var(--kampar-gold);
+}
+
+.admin-form-body {
+  padding: 40px 36px;
+}
+
+.admin-form-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.admin-form-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--kampar-green-dark);
+  background-color: rgba(212, 175, 55, 0.25);
+  flex-shrink: 0;
+}
+
+.admin-form-title {
+  font-weight: 700;
+  color: var(--kampar-green-dark);
+  font-size: 1.35rem;
+  margin-bottom: 2px;
+}
+
+.admin-form-subtitle {
+  color: #888888;
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+.admin-form-card .form-label {
+  font-weight: 600;
+  color: var(--kampar-green-dark);
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+}
+
+.admin-form-card .form-control,
+.admin-form-card .form-select {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-size: 0.94rem;
+}
+
+.admin-form-card .form-control:focus,
+.admin-form-card .form-select:focus {
+  border-color: var(--kampar-green);
+  box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.1);
+}
+
+.admin-form-card .form-text {
+  color: #999999;
+  font-size: 0.8rem;
+  margin-top: 6px;
+}
+
+.admin-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.btn-form-save {
+  background-color: var(--kampar-green);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 11px 26px;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-form-save:hover {
+  background-color: var(--kampar-green-dark);
+  color: var(--kampar-gold);
+}
+
+.btn-form-cancel {
+  background-color: transparent;
+  color: #666666;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 11px 22px;
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.btn-form-cancel:hover {
+  background-color: #f7f9fc;
+  border-color: #ccc;
+  color: #444444;
+}
