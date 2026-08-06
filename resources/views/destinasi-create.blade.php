@@ -136,6 +136,12 @@
                             >
                         </div>
 
+                        <div class="mb-4">
+                           <label class="form-label">Harga Tiket (Rp)</label>
+                           <input type="number" name="harga_tiket" class="form-control"
+                              placeholder="contoh: 10000" min="0">
+                        </div>
+
 
                         <div class="d-flex gap-2">
                             <button type="submit" class="btn btn-primary">

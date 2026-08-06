@@ -1494,3 +1494,19 @@ footer {
   border-color: #ccc;
   color: #444444;
 }
+
+.detail-info-item-highlight {
+    border: 1px solid var(--kampar-gold);
+    border-radius: 12px;
+    background-color: rgba(212, 175, 55, 0.08);
+}
+
+.detail-info-item-highlight i {
+    color: var(--kampar-gold);
+}
+
+.detail-info-item-highlight p {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--kampar-green-dark);
+}
