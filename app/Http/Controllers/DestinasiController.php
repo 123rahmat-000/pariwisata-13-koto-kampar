@@ -21,6 +21,8 @@ class DestinasiController extends Controller
 
     public function show($id)
     {
+         $destinasi = Destinasi::with('atraksi')->findOrFail($id);
+    
         $destinasi = Destinasi::findOrFail($id);
 
         return view('destinasi-detail', [
@@ -107,6 +109,7 @@ class DestinasiController extends Controller
 
     public function destroy($id)
     {
+
         $destinasi = Destinasi::findOrFail($id);
         $destinasi->delete();
 
