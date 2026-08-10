@@ -19,4 +19,5 @@ public function atraksi()
     return $this->hasMany(Atraksi::class);
 }
 
+public function ulasan() { return $this->hasMany(Ulasan::class); }
 }

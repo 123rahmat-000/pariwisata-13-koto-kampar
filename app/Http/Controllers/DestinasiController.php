@@ -21,9 +21,7 @@ class DestinasiController extends Controller
 
     public function show($id)
     {
-         $destinasi = Destinasi::with('atraksi')->findOrFail($id);
-    
-        $destinasi = Destinasi::findOrFail($id);
+       $destinasi = Destinasi::with(['atraksi', 'ulasan.user'])->findOrFail($id);
 
         return view('destinasi-detail', [
             'destinasi' => $destinasi,
@@ -40,7 +38,7 @@ class DestinasiController extends Controller
     $validated = $request->validate([
         'nama'         => 'required|string|max:255',
         'deskripsi'    => 'required|string',
-        'gambar'       => 'nullable|string|max:255',
+        'gambar' => 'required|image|max:2048',
         'jam_buka'     => 'required|date_format:H:i,H:i:s',
         'jam_tutup'    => 'required|date_format:H:i,H:i:s|after:jam_buka',
         'lokasi'       => 'nullable|string|max:255',
@@ -60,6 +58,9 @@ class DestinasiController extends Controller
         'harga_tiket.min'       => 'Harga tiket tidak boleh kurang dari 0.',
         'harga_tiket.max'       => 'Harga tiket terlalu besar.',
     ]);
+         $validated['gambar'] = $request->file('gambar')->store('destinasi', 'public');
+         Destinasi::create($validated);
+
 
     $destinasi = Destinasi::create($validated);
 
@@ -80,7 +81,7 @@ class DestinasiController extends Controller
     $validated = $request->validate([
         'nama'         => 'required|string|max:255',
         'deskripsi'    => 'required|string',
-        'gambar'       => 'nullable|string|max:255',
+         'gambar' => 'nullable|image|max:2048',
         'jam_buka'     => 'required|date_format:H:i,H:i:s',
         'jam_tutup'    => 'required|date_format:H:i,H:i:s|after:jam_buka',
         'lokasi'       => 'nullable|string|max:255',
@@ -100,6 +101,14 @@ class DestinasiController extends Controller
         'harga_tiket.min'       => 'Harga tiket tidak boleh kurang dari 0.',
         'harga_tiket.max'       => 'Harga tiket terlalu besar.',
     ]);
+
+       if ($request->hasFile('gambar')) {
+       $validated['gambar'] = $request->file('gambar')->store('destinasi', 'public');
+       } else {
+       unset($validated['gambar']);
+}
+ 
+$destinasi->update($validated);
 
     $destinasi->update($validated);
 

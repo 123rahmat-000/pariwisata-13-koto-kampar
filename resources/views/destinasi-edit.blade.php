@@ -50,7 +50,8 @@
                     @endif
 
 
-                    <form action="{{ route('destinasi.update', $destinasi->id) }}" method="POST">
+                    <form action="{{ route('destinasi.update', $destinasi->id) }}" method="POST"enctype="multipart/form-data">
+>
                         @csrf
                         @method('PUT')
 
@@ -83,14 +84,9 @@
 
                         <div class="mb-3">
                             <label for="gambar" class="form-label">Nama File Gambar</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="gambar"
-                                name="gambar"
-                                value="{{ old('gambar', $destinasi->gambar) }}"
-                                required
-                            >
+                            <input type="file" name="gambar" class="form-control" accept="image/*" required>
+ 
+
                             <div class="form-text">
                                 Nama file gambar yang tersimpan di folder public/images.
                             </div>

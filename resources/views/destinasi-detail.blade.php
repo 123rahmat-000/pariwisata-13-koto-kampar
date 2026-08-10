@@ -29,7 +29,8 @@
 <section class="detail-hero-image-section">
     <div class="container">
         <div class="detail-hero-image-wrap">
-            <img src="{{ asset('images/' . $destinasi->gambar) }}" alt="Air Terjun Contoh">
+            <img src="{{ asset('asset('storage/' . $destinasi->gambar)
+/' . $destinasi->gambar) }}" alt="Air Terjun Contoh">
             <span class="status-badge status-buka">Sedang Buka</span>
         </div>
     </div>
@@ -186,6 +187,28 @@
             </iframe>
         </div>
     </div>
+    <div class="detail-ulasan mt-5">
+    <span class="section-eyebrow">&#9670; Kata Pengunjung</span>
+    <h2 class="section-title">Ulasan Pengunjung</h2>
+
+    @forelse ($destinasi->ulasan as $ulasan)
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <strong>{{ $ulasan->user->name }}</strong>
+                    <span class="badge bg-warning text-dark">{{ $ulasan->rating }} / 5</span>
+                </div>
+                <p class="mb-0">{{ $ulasan->komentar }}</p>
+            </div>
+        </div>
+    @empty
+        <p class="text-muted">Belum ada ulasan untuk destinasi ini.</p>
+    @endforelse
+
+    <a href="{{ route('ulasan.create', $destinasi->id) }}" class="btn btn-outline-primary mt-2">
+        Tulis Ulasan
+    </a>
+</div>
 
     <div class="detail-atraksi mt-5">
     <h2 class="section-title">Atraksi di Destinasi Ini</h2>
