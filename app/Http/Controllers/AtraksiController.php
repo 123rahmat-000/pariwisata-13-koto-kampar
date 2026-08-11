@@ -30,9 +30,11 @@ public function store(Request $request)
         'deskripsi' => 'required',
         'kategori' => 'required',
         'harga' => 'required|numeric|min:0',
-        'gambar' => 'required',
+        'gambar' => 'required|image|max:2048',
     ]);
  
+    $validated['gambar'] = $request->file('gambar')->store('atraksi', 'public');
+
     Atraksi::create($validated);
  
     return redirect()->route('atraksi')
@@ -57,8 +59,15 @@ public function update(Request $request, $id)
         'deskripsi' => 'required',
         'kategori' => 'required',
         'harga' => 'required|numeric|min:0',
-        'gambar' => 'required',
+        'gambar' => 'nullable|image|max:2048',
     ]);
+
+    if ($request->hasFile('gambar')) {
+        $validated['gambar'] = $request->file('gambar')->store('atraksi', 'public');
+    } else {
+        unset($validated['gambar']);
+    }
+
  
     $atraksi->update($validated);
  

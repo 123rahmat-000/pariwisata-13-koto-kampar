@@ -29,8 +29,7 @@
 <section class="detail-hero-image-section">
     <div class="container">
         <div class="detail-hero-image-wrap">
-            <img src="{{ asset('asset('storage/' . $destinasi->gambar)
-/' . $destinasi->gambar) }}" alt="Air Terjun Contoh">
+            <img src="{{ asset('storage/' . $destinasi->gambar) }}" alt="Air Terjun Contoh">
             <span class="status-badge status-buka">Sedang Buka</span>
         </div>
     </div>
@@ -216,7 +215,7 @@
         @forelse ($destinasi->atraksi as $atraksi)
             <div class="col-md-4">
                 <div class="card h-100">
-                    <img src="{{ asset('images/' . $atraksi->gambar) }}" class="card-img-top">
+                    <img src="{{ asset('storage/' . $atraksi->gambar) }}" class="card-img-top">
                     <div class="card-body">
                         <h6 class="card-title">{{ $atraksi->nama }}</h6>
                         <span class="badge bg-secondary">{{ $atraksi->kategori }}</span>
