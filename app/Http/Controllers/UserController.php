@@ -25,6 +25,7 @@ class UserController extends Controller
             'name'     => 'required|string|max:255',
             'email'    => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
+            'role'     => 'required|string|in:admin,user',
         ], [
             'name.required'      => 'Nama wajib diisi.',
             'email.required'     => 'Email wajib diisi.',
@@ -33,6 +34,8 @@ class UserController extends Controller
             'password.required'  => 'Password wajib diisi.',
             'password.min'       => 'Password minimal 8 karakter.',
             'password.confirmed' => 'Konfirmasi password tidak cocok.',
+            'role.required'      => 'Role wajib dipilih.',
+            'role.in'            => 'Role tidak valid.',
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
@@ -57,6 +60,7 @@ class UserController extends Controller
             'name'     => 'required|string|max:255',
             'email'    => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8|confirmed',
+            'role'     => 'required|string|in:admin,user',
         ], [
             'name.required'      => 'Nama wajib diisi.',
             'email.required'     => 'Email wajib diisi.',
@@ -64,6 +68,8 @@ class UserController extends Controller
             'email.unique'       => 'Email sudah terdaftar.',
             'password.min'       => 'Password minimal 8 karakter.',
             'password.confirmed' => 'Konfirmasi password tidak cocok.',
+            'role.required'      => 'Role wajib dipilih.',
+            'role.in'            => 'Role tidak valid.',
         ]);
 
         if (!empty($validated['password'])) {

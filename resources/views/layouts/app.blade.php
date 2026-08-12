@@ -55,12 +55,20 @@
              <ul class="dropdown-menu dropdown-menu-end">
             <li><span class="dropdown-item-text fw-bold">{{ Auth::user()->name }}</span></li>
             <li><hr class="dropdown-divider"></li>
+@if(Auth::user()->role === 'admin')
+    <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard Admin</a></li>
+@endif
+<li><hr class="dropdown-divider"></li>
+
+
+
             <li>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="dropdown-item text-danger">Logout</button>
                 </form>
             </li>
+
         </ul>
     </div>
 @endguest

@@ -1510,3 +1510,346 @@ footer {
     font-size: 1.1rem;
     color: var(--kampar-green-dark);
 }
+
+/* ============================
+   ADMIN - LAYOUT DASHBOARD
+   (tambahkan blok ini ke style.css, letakkan
+   setelah bagian "ADMIN - FORM TAMBAH / EDIT USER")
+   ============================ */
+
+.admin-shell {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f7f9fc;
+}
+
+/* ---- Sidebar ---- */
+.admin-sidebar {
+  width: 240px;
+  background-color: var(--kampar-green-dark);
+  color: #ffffff;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-sidebar-brand {
+  padding: 1.8rem 1.4rem 1.2rem;
+}
+
+.admin-sidebar-brand h5 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.admin-sidebar-brand small {
+  display: block;
+  margin-top: 4px;
+  color: var(--kampar-gold);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.admin-sidebar-divider {
+  height: 4px;
+  background-image:
+    repeating-linear-gradient(45deg, var(--kampar-gold) 0 4px, transparent 4px 9px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 0 4px, transparent 4px 9px);
+  background-blend-mode: multiply;
+  opacity: 0.9;
+}
+
+.admin-nav {
+  padding: 1.1rem 0.9rem;
+  flex: 1;
+}
+
+.admin-nav a {
+  color: #E8E8E8;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.68rem 0.9rem;
+  border-radius: 8px;
+  margin-bottom: 0.25rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.admin-nav a i {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.admin-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.admin-nav a.active {
+  background-color: var(--kampar-green);
+  color: #ffffff;
+  font-weight: 600;
+  position: relative;
+}
+
+.admin-nav a.active::before {
+  content: "";
+  position: absolute;
+  left: -0.9rem;
+  top: 0.55rem;
+  bottom: 0.55rem;
+  width: 3px;
+  background-color: var(--kampar-gold);
+  border-radius: 2px;
+}
+
+.admin-sidebar-foot {
+  padding: 1rem 1.4rem 1.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-sidebar-foot a {
+  color: #C9CDD3;
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.admin-sidebar-foot a:hover {
+  color: var(--kampar-gold);
+}
+
+/* ---- Main area ---- */
+.admin-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-topbar {
+  background-color: #ffffff;
+  padding: 1.1rem 2rem;
+  border-bottom: 1px solid #eeeeee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-topbar h5 {
+  margin: 0;
+  font-weight: 700;
+  color: var(--kampar-green-dark);
+}
+
+.admin-user {
+  font-size: 0.88rem;
+  color: #666666;
+}
+
+.admin-user strong {
+  color: var(--kampar-green-dark);
+}
+
+.admin-body {
+  padding: 2rem;
+}
+
+/* ---- Kartu statistik ---- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+  margin-bottom: 2.2rem;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 1.4rem 1.4rem 1.2rem;
+  box-shadow: 0 10px 30px rgba(13, 40, 24, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(13, 40, 24, 0.14);
+}
+
+.stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background-color: rgba(27, 67, 50, 0.08);
+  color: var(--kampar-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 0.9rem;
+}
+
+.stat-card.is-gold .stat-icon {
+  background-color: rgba(212, 175, 55, 0.15);
+  color: #B08A1F;
+}
+
+.stat-label {
+  color: #888888;
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--kampar-green-dark);
+  line-height: 1;
+}
+
+/* ---- Akses cepat ---- */
+.quick-actions-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.quick-actions-head h6 {
+  margin: 0;
+  font-weight: 700;
+  color: var(--kampar-green-dark);
+  font-size: 1.05rem;
+}
+
+.quick-actions-head span {
+  color: #999999;
+  font-size: 0.82rem;
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+}
+
+.quick-action-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 1.3rem;
+  text-decoration: none;
+  display: block;
+  box-shadow: 0 10px 30px rgba(13, 40, 24, 0.06);
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.quick-action-card:hover {
+  border-color: var(--kampar-gold);
+  transform: translateY(-3px);
+}
+
+.quick-action-card .stat-icon {
+  background-color: var(--kampar-green-dark);
+  color: var(--kampar-gold);
+  margin-bottom: 1rem;
+}
+
+.quick-action-title {
+  font-weight: 700;
+  color: var(--kampar-green-dark);
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.quick-action-desc {
+  color: #777777;
+  font-size: 0.82rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+.quick-action-go {
+  color: var(--kampar-green);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+@media (max-width: 991px) {
+  .stat-grid, .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-shell {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    width: 100%;
+  }
+  .stat-grid, .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-body {
+    padding: 1.2rem;
+  }
+}
+
+/* ============================
+   DETAIL DESTINASI - AKSI ADMIN (Edit / Hapus)
+   (tempel di akhir style.css)
+   ============================ */
+
+.detail-admin-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-detail-edit {
+  border: 1.5px solid var(--kampar-gold);
+  color: var(--kampar-gold);
+  background-color: transparent;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-detail-edit:hover {
+  background-color: var(--kampar-gold);
+  color: var(--kampar-green-dark);
+}
+
+.btn-detail-delete {
+  border: 1.5px solid #E57373;
+  color: #E57373;
+  background-color: transparent;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-detail-delete:hover {
+  background-color: #E57373;
+  color: #ffffff;
+}

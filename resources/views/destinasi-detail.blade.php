@@ -13,12 +13,23 @@
                 <li class="breadcrumb-item active" aria-current="page">{{ $destinasi->nama }}</li>
             </ol>
         </nav>
-        <form action="{{ route('destinasi.destroy', $destinasi->id) }}" method="POST"
-      onsubmit="return confirm('Yakin ingin menghapus data ini?')">
-    @csrf
-    @method('DELETE')
-    <button type="submit">Hapus Destinasi</button>
-</form>
+
+        @if(Auth::check() && Auth::user()->role === 'admin')
+            <div class="detail-admin-actions">
+                <a href="{{ route('destinasi.edit', $destinasi->id) }}" class="btn-detail-edit">
+                    <i class="bi bi-pencil"></i> Edit Destinasi
+                </a>
+                <form action="{{ route('destinasi.destroy', $destinasi->id) }}" method="POST"
+                      onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn-detail-delete">
+                        <i class="bi bi-trash"></i> Hapus Destinasi
+                    </button>
+                </form>
+            </div>
+        @endif
+
         <h1 class="page-header-title">{{ $destinasi->nama }}</h1>
         <p class="page-header-subtitle">
             {{ $destinasi->deskripsi }}

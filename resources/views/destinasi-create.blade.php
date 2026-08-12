@@ -84,9 +84,6 @@
                         <div class="mb-3">
                             <label for="gambar" class="form-label">Nama File Gambar</label>
                             <input type="file" name="gambar" class="form-control" accept="image/*" required>
- 
-                            <input type="file" name="gambar" class="form-control" accept="image/*" required>
- 
 
                             <div class="form-text">
                                 Sementara isi nama file gambar yang sudah tersedia di folder public/images.

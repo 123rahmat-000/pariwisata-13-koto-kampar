@@ -13,10 +13,20 @@
             </ol>
         </nav>
 
-        <h1 class="page-header-title">Destinasi Wisata XIII Koto Kampar</h1>
-        <p class="page-header-subtitle">
-            Temukan pesona alam, sejarah, dan budaya yang tersebar di seluruh penjuru XIII Koto Kampar.
-        </p>
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+            <div>
+                <h1 class="page-header-title">Destinasi Wisata XIII Koto Kampar</h1>
+                <p class="page-header-subtitle">
+                    Temukan pesona alam, sejarah, dan budaya yang tersebar di seluruh penjuru XIII Koto Kampar.
+                </p>
+            </div>
+
+            @if(Auth::check() && Auth::user()->role === 'admin')
+                <a href="{{ route('destinasi.create') }}" class="btn-add-user flex-shrink-0">
+                    <i class="bi bi-plus-lg"></i> Tambah Destinasi
+                </a>
+            @endif
+        </div>
     </div>
 
     <div class="destinasi-search-wrap">
