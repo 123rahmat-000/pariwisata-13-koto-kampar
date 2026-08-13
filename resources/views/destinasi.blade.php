@@ -42,20 +42,18 @@
 
 <section class="filter-section">
     <div class="container">
-        <ul class="nav filter-tabs justify-content-center flex-wrap">
-            <li class="nav-item">
-                <a class="nav-link filter-tab active" href="#">Semua</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link filter-tab" href="#">Wisata Alam</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link filter-tab" href="#">Wisata Sejarah</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link filter-tab" href="#">Wisata Air</a>
-            </li>
-        </ul>
+        <div class="category-filter-wrap">
+            <a href="{{ route('destinasi', array_filter(['cari' => $keyword])) }}"
+               class="category-pill {{ !$kategoriId ? 'active' : '' }}">
+                <i class="bi bi-grid-fill"></i> Semua
+            </a>
+            @foreach ($kategoriList as $kategori)
+                <a href="{{ route('destinasi', array_filter(['cari' => $keyword, 'kategori' => $kategori->id])) }}"
+                   class="category-pill {{ $kategoriId == $kategori->id ? 'active' : '' }}">
+                    {{ $kategori->nama_kategori }}
+                </a>
+            @endforeach
+        </div>
     </div>
 </section>
 
@@ -87,7 +85,9 @@
                             <span class="status-badge {{ $status == 'Sedang Buka' ? 'status-buka' : 'status-tutup' }}">
                                 {{ $status }}
                             </span>
-                            <span class="category-badge">Wisata Alam</span>
+                            @if($destinasi->kategori)
+                                <span class="category-badge">{{ $destinasi->kategori->nama_kategori }}</span>
+                            @endif
                         </div>
 
                         <div class="destinasi-full-card-body">

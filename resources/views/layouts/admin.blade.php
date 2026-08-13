@@ -31,6 +31,9 @@
             <a href="{{ route('user') }}" class="{{ request()->routeIs('user*') ? 'active' : '' }}">
                 <i class="bi bi-people"></i> Kelola User
             </a>
+            <a href="{{ route('kategori') }}" class="{{ request()->routeIs('user*') ? 'active' : '' }}">
+                <i class="bi bi-tags-fill"></i> Kelola Kategori
+            </a>
         </nav>
 
         <div class="admin-sidebar-foot">
